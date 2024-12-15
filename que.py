@@ -202,3 +202,37 @@ def sort_stack(stack):
 stack = [34, 3, 31, 98, 92, 23]
 sorted_stack = sort_stack(stack)
 print("Sorted stack:", sorted_stack)  # Output: [3, 23, 31, 34, 92, 98]
+#undo redo
+class TextEditor:
+    def __init__(self):
+        self.text = ""
+        self.undo_stack = []
+        self.redo_stack = []
+
+    def write(self, text):
+        self.undo_stack.append(self.text)
+        self.text += text
+        self.redo_stack.clear()
+
+    def undo(self):
+        if self.undo_stack:
+            self.redo_stack.append(self.text)
+            self.text = self.undo_stack.pop()
+
+    def redo(self):
+        if self.redo_stack:
+            self.undo_stack.append(self.text)
+            self.text = self.redo_stack.pop()
+
+    def read(self):
+        return self.text
+
+# Usage
+editor = TextEditor()
+editor.write("Hello")
+editor.write(", World!")
+print("Text:", editor.read())  # Output: "Hello, World!"
+editor.undo()
+print("After Undo:", editor.read())  # Output: "Hello"
+editor.redo()
+print("After Redo:", editor.read())  # Output: "Hello, World!"
