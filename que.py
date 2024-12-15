@@ -187,3 +187,18 @@ def evaluate_postfix(expression):
     return stack.pop()
 
 print(evaluate_postfix("23*54*+"))  # Output: 26
+#sort stack
+def sort_stack(stack):
+    temp_stack = []
+    
+    while stack:
+        current = stack.pop()
+        while temp_stack and temp_stack[-1] > current:
+            stack.append(temp_stack.pop())
+        temp_stack.append(current)
+    
+    return temp_stack
+
+stack = [34, 3, 31, 98, 92, 23]
+sorted_stack = sort_stack(stack)
+print("Sorted stack:", sorted_stack)  # Output: [3, 23, 31, 34, 92, 98]
