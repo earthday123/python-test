@@ -113,3 +113,20 @@ def reverse_string(s):
     return reversed_str
 
 print(reverse_string("hello"))  # Output: "olleh"
+#balanced paraentesis
+def is_balanced(expression):
+    stack = []
+    matching = {')': '(', '}': '{', ']': '['}
+
+    for char in expression:
+        if char in "({[":
+            stack.append(char)
+        elif char in ")}]":
+            if not stack or stack.pop() != matching[char]:
+                return False
+
+    return not stack
+
+# Test cases
+print(is_balanced("({[]})"))  # Output: True
+print(is_balanced("({[)]"))  # Output: False
