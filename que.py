@@ -81,3 +81,21 @@ print("Popped:", stack.pop())  # Output: 3
 print("Popped:", stack.pop())  # Output: 2
 
 print("Stack after popping:", stack)  # Output: [1]
+
+
+from collections import deque
+
+stack = deque()
+
+# Push elements onto the stack
+stack.append(10)
+stack.append(20)
+stack.append(30)
+
+print("Stack after pushing:", stack)  # Output: deque([10, 20, 30])
+
+# Pop elements from the stack
+print("Popped:", stack.pop())  # Output: 30
+print("Popped:", stack.pop())  # Output: 20
+
+print("Stack after popping:", stack)  # Output: deque([10])
