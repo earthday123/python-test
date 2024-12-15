@@ -236,3 +236,19 @@ editor.undo()
 print("After Undo:", editor.read())  # Output: "Hello"
 editor.redo()
 print("After Redo:", editor.read())  # Output: "Hello, World!"
+#stock span
+def stock_span(prices):
+    stack = []
+    result = []
+
+    for i, price in enumerate(prices):
+        span = 1
+        while stack and stack[-1][0] <= price:
+            span += stack.pop()[1]
+        stack.append((price, span))
+        result.append(span)
+
+    return result
+
+prices = [100, 80, 60, 70, 60, 75, 85]
+print(stock_span(prices))  # Output: [1, 1, 1, 2, 1, 4, 6]
