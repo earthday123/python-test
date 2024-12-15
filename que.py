@@ -66,3 +66,18 @@ print(lru.get(1))  # Output: -1 (key 1 was evicted)
 # Updating an item
 lru.put(3, "C updated")
 lru.display()
+# Using a Python list as a stack
+stack = []
+
+# Push elements onto the stack
+stack.append(1)
+stack.append(2)
+stack.append(3)
+
+print("Stack after pushing:", stack)  # Output: [1, 2, 3]
+
+# Pop elements from the stack
+print("Popped:", stack.pop())  # Output: 3
+print("Popped:", stack.pop())  # Output: 2
+
+print("Stack after popping:", stack)  # Output: [1]
