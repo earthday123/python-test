@@ -99,3 +99,17 @@ print("Popped:", stack.pop())  # Output: 30
 print("Popped:", stack.pop())  # Output: 20
 
 print("Stack after popping:", stack)  # Output: deque([10])
+
+#reversing string
+def reverse_string(s):
+    stack = []
+    for char in s:
+        stack.append(char)
+    
+    reversed_str = ""
+    while stack:
+        reversed_str += stack.pop()
+    
+    return reversed_str
+
+print(reverse_string("hello"))  # Output: "olleh"
