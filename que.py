@@ -164,3 +164,26 @@ s.push(15)
 print("Top of the stack:", s.peek())  # Output: 15
 print("Popped:", s.pop())  # Output: 15
 print("Stack size:", s.size())  # Output: 2
+#reverse polish notation
+def evaluate_postfix(expression):
+    stack = []
+    operators = {'+', '-', '*', '/'}
+
+    for char in expression:
+        if char.isdigit():
+            stack.append(int(char))
+        elif char in operators:
+            b = stack.pop()
+            a = stack.pop()
+            if char == '+':
+                stack.append(a + b)
+            elif char == '-':
+                stack.append(a - b)
+            elif char == '*':
+                stack.append(a * b)
+            elif char == '/':
+                stack.append(a // b)
+
+    return stack.pop()
+
+print(evaluate_postfix("23*54*+"))  # Output: 26
